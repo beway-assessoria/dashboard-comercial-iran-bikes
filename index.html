@@ -3,563 +3,494 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Iran Bikes — Plano Julho 2026</title>
+<title>Iran Bikes — Dashboard Comercial</title>
 <style>
-  :root {
-    --black: #0A0A0A;
-    --yellow: #F5C400;
-    --yellow-dim: #C49D00;
-    --white: #F5F4F0;
-    --gray-1: #1A1A1A;
-    --gray-2: #242424;
-    --gray-3: #2E2E2E;
-    --gray-4: #444;
-    --gray-5: #888;
-    --gray-6: #AAAAAA;
-    --green: #4CAF50;
-    --red: #E53935;
-    --blue: #4A90D9;
-    --radius: 10px;
-    --font: 'Inter', system-ui, -apple-system, sans-serif;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--black);
-    color: var(--white);
-    font-family: var(--font);
-    font-size: 15px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
+:root{
+  --black:#0A0A0A; --yellow:#F5C400; --yellow-dim:#C49D00;
+  --white:#F5F4F0; --g1:#151515; --g2:#1F1F1F; --g3:#2C2C2C; --g4:#3D3D3D;
+  --g5:#7A7A7A; --g6:#A8A8A8;
+  --green:#4CAF50; --red:#E5544F; --blue:#4A90D9; --purple:#A882D5; --teal:#3FB8A0;
+  --r:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.page{max-width:1020px;margin:0 auto;padding:0 24px 80px}
 
-  /* ── LAYOUT ── */
-  .page { max-width: 860px; margin: 0 auto; padding: 0 24px 80px; }
+header{border-bottom:1px solid var(--g3);padding:44px 0 32px;margin-bottom:20px}
+.htop{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.brand{font-size:12px;color:var(--g5);letter-spacing:.09em;text-transform:uppercase;margin-bottom:10px}
+h1{font-size:clamp(30px,5vw,46px);font-weight:700;letter-spacing:-1.3px;line-height:1.05}
+h1 span{color:var(--yellow)}
+.status{text-align:right}
+.badge{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:10px}
+.bd-g{background:rgba(76,175,80,.12);color:var(--green);border:1px solid rgba(76,175,80,.3)}
+.status-sub{font-size:12px;color:var(--g5)}
+.lede{font-size:14px;color:var(--g6);max-width:640px;border-left:2px solid var(--yellow);padding-left:14px;margin-top:20px}
 
-  /* ── HEADER ── */
-  header {
-    border-bottom: 1px solid var(--gray-3);
-    padding: 48px 0 40px;
-    margin-bottom: 56px;
-  }
-  .header-top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 16px;
-    flex-wrap: wrap;
-    margin-bottom: 24px;
-  }
-  .brand { font-size: 13px; color: var(--gray-5); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px; }
-  .hero-title { font-size: clamp(36px, 6vw, 56px); font-weight: 700; letter-spacing: -1.5px; line-height: 1.05; }
-  .hero-title span { color: var(--yellow); }
-  .meta-block { text-align: right; }
-  .meta-label { font-size: 11px; color: var(--gray-5); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 4px; }
-  .meta-value { font-size: 42px; font-weight: 700; color: var(--yellow); letter-spacing: -1px; line-height: 1; }
-  .meta-sub { font-size: 12px; color: var(--gray-5); margin-top: 4px; }
-  .header-summary {
-    font-size: 14px;
-    color: var(--gray-6);
-    max-width: 560px;
-    border-left: 2px solid var(--yellow);
-    padding-left: 14px;
-  }
+nav{display:flex;gap:6px;flex-wrap:wrap;margin:28px 0 48px}
+nav a{font-size:12px;color:var(--g5);text-decoration:none;padding:5px 12px;border:1px solid var(--g3);border-radius:20px;transition:.15s}
+nav a:hover{color:var(--yellow);border-color:var(--yellow-dim)}
 
-  /* ── NAV ── */
-  nav {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-    margin-bottom: 56px;
-  }
-  nav a {
-    font-size: 12px;
-    color: var(--gray-5);
-    text-decoration: none;
-    padding: 5px 12px;
-    border: 1px solid var(--gray-3);
-    border-radius: 20px;
-    transition: color .15s, border-color .15s;
-  }
-  nav a:hover { color: var(--yellow); border-color: var(--yellow-dim); }
+.sec{margin-bottom:60px}
+.eyebrow{font-size:11px;color:var(--yellow);letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:10px}
+h2{font-size:21px;font-weight:600;letter-spacing:-.4px;margin-bottom:6px}
+.desc{font-size:13px;color:var(--g6);margin-bottom:22px}
+hr{border:none;border-top:1px solid var(--g2);margin:52px 0}
 
-  /* ── SECTION ── */
-  .section { margin-bottom: 64px; }
-  .section-eyebrow {
-    font-size: 11px;
-    color: var(--yellow);
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    font-weight: 600;
-    margin-bottom: 10px;
-  }
-  .section-title { font-size: 22px; font-weight: 600; letter-spacing: -.4px; margin-bottom: 6px; }
-  .section-desc { font-size: 13px; color: var(--gray-6); margin-bottom: 24px; }
-  .divider { border: none; border-top: 1px solid var(--gray-2); margin: 56px 0; }
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:2px;margin-bottom:20px}
+.kpi{background:var(--g1);padding:18px 16px}
+.kpi:first-child{border-radius:var(--r) 0 0 var(--r)}
+.kpi:last-child{border-radius:0 var(--r) var(--r) 0}
+.kpi-l{font-size:11px;color:var(--g5);margin-bottom:6px}
+.kpi-v{font-size:23px;font-weight:700;letter-spacing:-.5px}
+.kpi-s{font-size:11px;color:var(--g5);margin-top:3px}
+.y{color:var(--yellow)}.g{color:var(--green)}.r{color:var(--red)}.b{color:var(--blue)}.p{color:var(--purple)}.t{color:var(--teal)}
 
-  /* ── KPI GRID ── */
-  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 2px; margin-bottom: 24px; }
-  .kpi {
-    background: var(--gray-1);
-    padding: 18px 16px;
-    position: relative;
-  }
-  .kpi:first-child { border-radius: var(--radius) 0 0 var(--radius); }
-  .kpi:last-child { border-radius: 0 var(--radius) var(--radius) 0; }
-  .kpi-label { font-size: 11px; color: var(--gray-5); margin-bottom: 6px; letter-spacing: .03em; }
-  .kpi-val { font-size: 24px; font-weight: 700; letter-spacing: -.5px; }
-  .kpi-sub { font-size: 11px; color: var(--gray-5); margin-top: 3px; }
-  .kpi-val.yellow { color: var(--yellow); }
-  .kpi-val.green { color: var(--green); }
-  .kpi-val.red { color: var(--red); }
-  .kpi-val.blue { color: var(--blue); }
+.chart{background:var(--g1);border:1px solid var(--g2);border-radius:var(--r);padding:20px;margin-bottom:16px}
+.chart-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:18px;flex-wrap:wrap;gap:8px}
+.chart-title{font-size:13px;font-weight:600}
+.chart-note{font-size:11px;color:var(--g5)}
+.bars{display:flex;align-items:flex-end;gap:3px;height:170px;padding-bottom:22px;position:relative}
+.bw{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;position:relative}
+.bar{width:100%;border-radius:2px 2px 0 0;background:var(--blue);transition:opacity .15s;min-height:2px}
+.bar.hi{background:var(--green)}.bar.lo{background:var(--red)}
+.bw:hover .bar{opacity:.7}
+.bx{position:absolute;bottom:-19px;font-size:8.5px;color:var(--g5)}
+.bt{position:absolute;top:-21px;font-size:10px;font-weight:600;color:#fff;opacity:0;white-space:nowrap;transition:.15s;z-index:5}
+.bw:hover .bt{opacity:1}
 
-  /* ── ALERT ── */
-  .alert {
-    border-radius: var(--radius);
-    padding: 14px 16px;
-    font-size: 13px;
-    line-height: 1.6;
-    margin-bottom: 16px;
-    border-left: 3px solid;
-  }
-  .alert-yellow { background: rgba(245,196,0,.07); border-color: var(--yellow); color: #E8C84A; }
-  .alert-red { background: rgba(229,57,53,.07); border-color: var(--red); color: #EF6A67; }
-  .alert-green { background: rgba(76,175,80,.07); border-color: var(--green); color: #70C573; }
-  .alert-blue { background: rgba(74,144,217,.07); border-color: var(--blue); color: #7AB2E0; }
-  .alert strong { font-weight: 600; }
+.hb{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.hb-l{font-size:12px;color:var(--g6);width:92px;flex-shrink:0;text-align:right}
+.hb-t{flex:1;height:7px;background:var(--g2);border-radius:4px;overflow:hidden}
+.hb-f{height:100%;border-radius:4px}
+.hb-v{font-size:12px;font-weight:600;width:150px;flex-shrink:0}
 
-  /* ── BAR CHART ── */
-  .bar-group { margin-bottom: 20px; }
-  .bar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-  .bar-label { font-size: 12px; color: var(--gray-6); width: 90px; flex-shrink: 0; text-align: right; }
-  .bar-track { flex: 1; height: 6px; background: var(--gray-2); border-radius: 3px; overflow: hidden; }
-  .bar-fill { height: 100%; border-radius: 3px; transition: width .6s ease; }
-  .bar-val { font-size: 12px; font-weight: 600; width: 120px; flex-shrink: 0; }
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px}
+.card{background:var(--g1);border:1px solid var(--g2);border-radius:var(--r);padding:18px 20px}
+.card-t{font-size:13px;font-weight:600;margin-bottom:12px}
+.step{display:flex;gap:11px;align-items:flex-start;margin-bottom:11px}
+.step:last-child{margin-bottom:0}
+.sn{min-width:21px;height:21px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;margin-top:1px}
+.nb{background:rgba(74,144,217,.13);color:var(--blue)}
+.ng{background:rgba(76,175,80,.13);color:var(--green)}
+.ny{background:rgba(245,196,0,.13);color:var(--yellow)}
+.nr{background:rgba(229,84,79,.13);color:var(--red)}
+.np{background:rgba(168,130,213,.13);color:var(--purple)}
+.nt{background:rgba(63,184,160,.13);color:var(--teal)}
+.sb{font-size:12px;line-height:1.55}
+.stt{font-size:12px;font-weight:600;margin-bottom:2px}
+.sd{color:var(--g6)}
 
-  /* ── TWO COL ── */
-  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
-  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+.alert{border-radius:0 var(--r) var(--r) 0;padding:13px 16px;font-size:13px;line-height:1.6;margin-bottom:14px;border-left:3px solid}
+.al-y{background:rgba(245,196,0,.06);border-color:var(--yellow);color:#E0C24E}
+.al-r{background:rgba(229,84,79,.06);border-color:var(--red);color:#EC807C}
+.al-g{background:rgba(76,175,80,.06);border-color:var(--green);color:#79C57C}
+.al-b{background:rgba(74,144,217,.06);border-color:var(--blue);color:#7FB4E2}
+.alert b{font-weight:600}
 
-  /* ── CARD ── */
-  .card {
-    background: var(--gray-1);
-    border: 1px solid var(--gray-2);
-    border-radius: var(--radius);
-    padding: 18px 20px;
-  }
-  .card-title { font-size: 13px; font-weight: 600; margin-bottom: 12px; }
-  .card-title.yellow { color: var(--yellow); }
-  .card-title.green { color: var(--green); }
-  .card-title.red { color: var(--red); }
-  .card-title.blue { color: var(--blue); }
+.tw{overflow-x:auto;margin-bottom:16px}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{text-align:left;color:var(--g5);font-weight:500;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;padding:9px 12px;border-bottom:1px solid var(--g2);white-space:nowrap}
+td{padding:10px 12px;border-bottom:1px solid var(--g2);color:var(--g6);vertical-align:top}
+td:first-child{color:var(--white);font-weight:500}
+tr:last-child td{border-bottom:none}
+.num{text-align:right;font-variant-numeric:tabular-nums}
 
-  /* ── STEPS ── */
-  .step { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 12px; }
-  .step:last-child { margin-bottom: 0; }
-  .step-n {
-    min-width: 22px; height: 22px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px;
-  }
-  .n-yellow { background: rgba(245,196,0,.12); color: var(--yellow); }
-  .n-green { background: rgba(76,175,80,.12); color: var(--green); }
-  .n-blue { background: rgba(74,144,217,.12); color: var(--blue); }
-  .n-red { background: rgba(229,57,53,.12); color: var(--red); }
-  .n-gray { background: var(--gray-2); color: var(--gray-5); }
-  .step-body { font-size: 12px; line-height: 1.55; }
-  .step-title { font-size: 12px; font-weight: 600; color: var(--white); margin-bottom: 2px; }
-  .step-desc { color: var(--gray-6); }
+.prog{background:var(--g1);border:1px solid var(--g2);border-radius:var(--r);padding:20px;margin-bottom:12px}
+.pt{height:24px;background:var(--g2);border-radius:6px;overflow:hidden;margin:12px 0 8px}
+.pf{height:100%;display:flex;align-items:center;padding-left:11px;font-size:11.5px;font-weight:700;color:#0A0A0A}
+.pm{display:flex;justify-content:space-between;font-size:11px;color:var(--g5)}
 
-  /* ── WEEK BLOCK ── */
-  .week { border: 1px solid var(--gray-2); border-radius: var(--radius); margin-bottom: 12px; overflow: hidden; }
-  .week-head {
-    display: flex; align-items: center; gap: 12px;
-    padding: 14px 18px;
-    background: var(--gray-1);
-    border-bottom: 1px solid var(--gray-2);
-  }
-  .week-badge {
-    font-size: 10px; font-weight: 700; letter-spacing: .06em;
-    text-transform: uppercase; padding: 3px 10px;
-    border-radius: 20px;
-  }
-  .wb-1 { background: rgba(74,144,217,.12); color: var(--blue); }
-  .wb-2 { background: rgba(76,175,80,.12); color: var(--green); }
-  .wb-3 { background: rgba(245,196,0,.12); color: var(--yellow); }
-  .wb-4 { background: rgba(160,120,200,.12); color: #B08ACF; }
-  .week-title { font-size: 13px; font-weight: 600; }
-  .week-body { padding: 16px 18px; }
-  .week-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.camp{border:1px solid var(--g3);border-radius:var(--r);overflow:hidden;margin-bottom:12px}
+.camp-h{display:flex;align-items:center;gap:12px;padding:14px 18px;background:var(--g1);border-bottom:1px solid var(--g2);flex-wrap:wrap}
+.cbd{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:20px}
+.cb-y{background:rgba(245,196,0,.13);color:var(--yellow)}
+.cb-p{background:rgba(168,130,213,.13);color:var(--purple)}
+.cb-t{background:rgba(63,184,160,.13);color:var(--teal)}
+.camp-t{font-size:13px;font-weight:600}
+.camp-d{font-size:11px;color:var(--g5);margin-left:auto}
+.camp-b{padding:16px 18px}
 
-  /* ── COMBO BOX ── */
-  .combo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
-  .combo-card {
-    background: var(--gray-1);
-    border: 1px solid var(--gray-3);
-    border-radius: var(--radius);
-    padding: 18px 16px;
-    text-align: center;
-  }
-  .combo-name { font-size: 11px; font-weight: 700; color: var(--yellow); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 8px; }
-  .combo-price { font-size: 26px; font-weight: 700; letter-spacing: -1px; margin-bottom: 6px; }
-  .combo-items { font-size: 11px; color: var(--gray-6); line-height: 1.7; }
-  .combo-tag {
-    display: inline-block; font-size: 10px; font-weight: 600;
-    background: rgba(245,196,0,.1); color: var(--yellow);
-    border-radius: 4px; padding: 2px 6px; margin-top: 8px;
-  }
+footer{border-top:1px solid var(--g2);padding:26px 0 0;font-size:11px;color:var(--g4);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 
-  /* ── REPOSICIONAMENTO ── */
-  .reposition { background: var(--gray-1); border: 1px solid var(--gray-3); border-radius: var(--radius); padding: 22px 24px; margin-bottom: 16px; }
-
-  /* ── SCRIPT BOX ── */
-  .script-box {
-    background: var(--gray-2); border-left: 2px solid var(--gray-4);
-    border-radius: 0 var(--radius) var(--radius) 0;
-    padding: 12px 14px; font-size: 12px; font-style: italic;
-    color: var(--gray-6); margin-top: 10px; line-height: 1.6;
-  }
-
-  /* ── TABLE ── */
-  .table-wrap { overflow-x: auto; margin-bottom: 16px; }
-  table { width: 100%; border-collapse: collapse; font-size: 12px; }
-  th { text-align: left; color: var(--gray-5); font-weight: 500; font-size: 11px; letter-spacing: .04em; text-transform: uppercase; padding: 8px 12px; border-bottom: 1px solid var(--gray-2); }
-  td { padding: 10px 12px; border-bottom: 1px solid var(--gray-2); color: var(--gray-6); vertical-align: top; }
-  td:first-child { color: var(--white); font-weight: 500; }
-  tr:last-child td { border-bottom: none; }
-  .td-yellow { color: var(--yellow) !important; }
-  .td-green { color: var(--green) !important; }
-  .td-red { color: var(--red) !important; }
-
-  /* ── FOOTER ── */
-  footer {
-    border-top: 1px solid var(--gray-2);
-    padding: 28px 0 0;
-    font-size: 11px;
-    color: var(--gray-4);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 600px) {
-    .grid2, .grid3, .combo-grid, .week-grid { grid-template-columns: 1fr; }
-    .kpi-grid { grid-template-columns: 1fr 1fr; }
-    .kpi:first-child { border-radius: var(--radius) var(--radius) 0 0; }
-    .kpi:last-child { border-radius: 0 0 var(--radius) var(--radius); }
-    .header-top { flex-direction: column; }
-    .meta-block { text-align: left; }
-    .bar-label { width: 70px; font-size: 11px; }
-  }
+@media(max-width:640px){
+  .grid2,.grid3{grid-template-columns:1fr}
+  .kpis{grid-template-columns:1fr 1fr}
+  .kpi:first-child{border-radius:var(--r) var(--r) 0 0}
+  .kpi:last-child{border-radius:0 0 var(--r) var(--r)}
+  .htop{flex-direction:column}.status{text-align:left}
+  .hb-l{width:70px;font-size:11px}.hb-v{width:112px;font-size:11px}
+  .bx{font-size:7px}
+}
 </style>
 </head>
 <body>
 <div class="page">
 
-  <!-- HEADER -->
-  <header>
-    <div class="header-top">
-      <div>
-        <div class="brand">Iran Bikes · Santa Cruz do Capibaribe</div>
-        <h1 class="hero-title">Plano Comercial<br><span>Julho 2026</span></h1>
-      </div>
-      <div class="meta-block">
-        <div class="meta-label">Meta do mês</div>
-        <div class="meta-value">R$400k</div>
-        <div class="meta-sub">emissão 11/07/2026</div>
-      </div>
+<header>
+  <div class="htop">
+    <div>
+      <div class="brand">Iran Bikes · Santa Cruz do Capibaribe</div>
+      <h1>Dashboard<br><span>Comercial</span></h1>
     </div>
-    <p class="header-summary">Diagnóstico de Maio, reposicionamento de marca, estrutura de time e ações semana a semana para julho.</p>
-  </header>
-
-  <!-- NAV -->
-  <nav>
-    <a href="#diagnostico">Diagnóstico Maio</a>
-    <a href="#reposicionamento">Marca</a>
-    <a href="#combos">Combos</a>
-    <a href="#time">Time</a>
-    <a href="#julho">Plano Julho</a>
-    <a href="#kpis">KPIs</a>
-  </nav>
-
-  <!-- 1. DIAGNÓSTICO -->
-  <div class="section" id="diagnostico">
-    <div class="section-eyebrow">01 · Diagnóstico</div>
-    <h2 class="section-title">Maio 2026 — o que os números dizem</h2>
-    <p class="section-desc">Mês forte de sazonalidade fechado em R$238k lançados. Meta era R$420k.</p>
-
-    <div class="kpi-grid">
-      <div class="kpi"><div class="kpi-label">Vendas lançadas</div><div class="kpi-val blue">R$238k</div><div class="kpi-sub">meta R$420k</div></div>
-      <div class="kpi"><div class="kpi-label">Recebido</div><div class="kpi-val">R$200k</div><div class="kpi-sub">gap R$37k a receber</div></div>
-      <div class="kpi"><div class="kpi-label">Canal online</div><div class="kpi-val green">R$107k</div><div class="kpi-sub">45% do total</div></div>
-      <div class="kpi"><div class="kpi-label">Ticket médio bikes</div><div class="kpi-val">R$2.735</div><div class="kpi-sub">109 transações</div></div>
-      <div class="kpi"><div class="kpi-label">Melhor dia</div><div class="kpi-val">R$20k</div><div class="kpi-sub">21/05</div></div>
-      <div class="kpi"><div class="kpi-label">Saídas/dispensas</div><div class="kpi-val red">R$25k</div><div class="kpi-sub">10,5% das vendas</div></div>
+    <div class="status">
+      <div class="badge bd-g">Agosto fechado</div>
+      <div class="status-sub">Maio · Julho · Agosto 2026<br>Atualizado em 04/09/2026</div>
     </div>
+  </div>
+  <p class="lede">Resultado consolidado dos três meses, diagnóstico de execução comercial e plano operacional de setembro.</p>
+</header>
 
-    <div class="section-eyebrow" style="margin-top:28px">Mix de vendas — canal online</div>
-    <div class="bar-group">
-      <div class="bar-row">
-        <div class="bar-label">Bikes</div>
-        <div class="bar-track"><div class="bar-fill" style="width:89.5%;background:var(--blue)"></div></div>
-        <div class="bar-val" style="color:var(--blue)">89,5% — R$95k</div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-label">Serviços</div>
-        <div class="bar-track"><div class="bar-fill" style="width:7%;background:var(--green)"></div></div>
-        <div class="bar-val" style="color:var(--green)">6,9% — R$7k</div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-label">Acessórios</div>
-        <div class="bar-track"><div class="bar-fill" style="width:3.5%;background:var(--yellow)"></div></div>
-        <div class="bar-val" style="color:var(--yellow)">3,6% — R$3,8k</div>
-      </div>
+<nav>
+  <a href="#consolidado">Consolidado</a>
+  <a href="#agosto">Agosto</a>
+  <a href="#quinzenas">Quinzenas</a>
+  <a href="#semana">Dias da semana</a>
+  <a href="#mix">Mix e attach</a>
+  <a href="#gargalos">Gargalos</a>
+  <a href="#setembro">Setembro</a>
+</nav>
+
+<!-- CONSOLIDADO -->
+<div class="sec" id="consolidado">
+  <div class="eyebrow">01 · Visão consolidada</div>
+  <h2>Três meses, mesmo patamar</h2>
+  <p class="desc">Meta mensal de R$420.000. Nenhum dos três meses chegou perto.</p>
+
+  <div class="prog">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+      <div class="chart-title">Maio</div><div class="chart-note">R$238.244 · 25 dias</div>
     </div>
+    <div class="pt"><div class="pf" style="width:56.7%;background:var(--blue)">57%</div></div>
+    <div class="pm"><span>média R$9.530/dia</span><span class="r">gap R$181.756</span></div>
+  </div>
 
-    <div class="alert alert-yellow"><strong>Principal oportunidade:</strong> Acessório representa só 3,6% do faturamento online. Nos meses em que saíram combos (Yoo + capacete + óculos, Caloi + kit completo), o ticket subiu R$300–600 sem esforço. Essa alavanca não foi usada na maioria das vendas.</div>
-
-    <div class="grid2">
-      <div class="card">
-        <div class="card-title green">O que funcionou</div>
-        <div class="step"><div class="step-n n-green">✓</div><div class="step-body"><div class="step-title">Tickets altos fecharam</div><div class="step-desc">Sunpeed Galaxy R$12.400, troca Oggi Agille R$8.880 — capacidade de fechar venda premium está provada.</div></div></div>
-        <div class="step"><div class="step-n n-green">✓</div><div class="step-body"><div class="step-title">Combos converteram melhor</div><div class="step-desc">Yoo + acessórios, Caloi + kit completo — quando o combo foi oferecido, o cliente comprou.</div></div></div>
-        <div class="step"><div class="step-n n-green">✓</div><div class="step-body"><div class="step-title">CRM ativo</div><div class="step-desc">Base sendo preenchida. Fundação pronta para gestão de pipeline em julho.</div></div></div>
-      </div>
-      <div class="card">
-        <div class="card-title red">O que vazou</div>
-        <div class="step"><div class="step-n n-red">!</div><div class="step-body"><div class="step-title">Ecopedal: 65% intocada</div><div class="step-desc">212 de 600 contactados. 388 participantes ainda disponíveis para julho.</div></div></div>
-        <div class="step"><div class="step-n n-red">!</div><div class="step-body"><div class="step-title">Dias fracos sem reação</div><div class="step-desc">Datas com menos de R$3k (07, 14, 20, 27/05) não geraram ação proativa. Ausência de protocolo para dias lentos.</div></div></div>
-        <div class="step"><div class="step-n n-red">!</div><div class="step-body"><div class="step-title">Acessório não foi ofertado</div><div class="step-desc">Menos de 30% das vendas de bike saíram com acessório junto.</div></div></div>
-      </div>
+  <div class="prog">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+      <div class="chart-title">Julho</div><div class="chart-note">R$272.477 · 27 dias</div>
     </div>
+    <div class="pt"><div class="pf" style="width:64.9%;background:var(--green)">65%</div></div>
+    <div class="pm"><span>média R$10.092/dia</span><span class="r">gap R$147.523</span></div>
+  </div>
 
-    <div class="section-eyebrow" style="margin-top:28px">Principais vendas de maio</div>
-    <div class="table-wrap">
+  <div class="prog">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+      <div class="chart-title">Agosto</div><div class="chart-note">R$225.564 · 25 dias</div>
+    </div>
+    <div class="pt"><div class="pf" style="width:53.7%;background:var(--red)">54%</div></div>
+    <div class="pm"><span>média R$9.023/dia</span><span class="r">gap R$194.436</span></div>
+  </div>
+
+  <div class="alert al-r"><b>Agosto recuou 17,2% contra julho</b> e ficou 5,3% abaixo de maio. Em média diária, a queda foi de 10,6%. O ganho conquistado em julho não se sustentou.</div>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th>Indicador</th><th class="num">Maio</th><th class="num">Julho</th><th class="num">Agosto</th><th class="num">Ago vs Jul</th></tr></thead>
+      <tbody>
+        <tr><td>Faturamento lançado</td><td class="num">R$238.244</td><td class="num g">R$272.477</td><td class="num">R$225.564</td><td class="num r">−17,2%</td></tr>
+        <tr><td>Média por dia</td><td class="num">R$9.530</td><td class="num g">R$10.092</td><td class="num">R$9.023</td><td class="num r">−10,6%</td></tr>
+        <tr><td>Atingimento da meta</td><td class="num">57%</td><td class="num g">65%</td><td class="num">54%</td><td class="num r">−11 p.p.</td></tr>
+        <tr><td>Bikes vendidas</td><td class="num">—</td><td class="num">98</td><td class="num">80</td><td class="num r">−18,4%</td></tr>
+        <tr><td>Ticket médio de bike</td><td class="num">—</td><td class="num g">R$1.871</td><td class="num">R$1.577</td><td class="num r">−15,7%</td></tr>
+        <tr><td>Oficina · participação</td><td class="num">—</td><td class="num">9,0%</td><td class="num g">13,3%</td><td class="num g">+4,3 p.p.</td></tr>
+        <tr><td>Oficina · ticket médio</td><td class="num">—</td><td class="num">R$159</td><td class="num g">R$203</td><td class="num g">+27,7%</td></tr>
+        <tr><td>Attach rate</td><td class="num">—</td><td class="num">9%</td><td class="num">6%</td><td class="num r">−3 p.p.</td></tr>
+        <tr><td>Saídas sobre lançado</td><td class="num">10,5%</td><td class="num g">11,3%</td><td class="num">13,6%</td><td class="num r">+2,3 p.p.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert al-g"><b>A oficina é a única linha que melhorou nos três indicadores.</b> Participação de 9% para 13,3%, ticket médio de R$159 para R$203 e 116 serviços no mês. O programa de revisões e o Sábado da Oficina estão funcionando — é o pedaço da operação que está respondendo ao método.</div>
+</div>
+
+<hr>
+
+<!-- AGOSTO -->
+<div class="sec" id="agosto">
+  <div class="eyebrow">02 · Agosto</div>
+  <h2>Ritmo diário</h2>
+  <p class="desc">25 dias operacionais registrados. Domingos fechados. Falta o registro de 03/08.</p>
+
+  <div class="kpis">
+    <div class="kpi"><div class="kpi-l">Total lançado</div><div class="kpi-v b">R$225,6k</div><div class="kpi-s">54% da meta</div></div>
+    <div class="kpi"><div class="kpi-l">Vendas novas</div><div class="kpi-v">R$177,3k</div><div class="kpi-s">produto e serviço</div></div>
+    <div class="kpi"><div class="kpi-l">Recebimentos</div><div class="kpi-v">R$48,3k</div><div class="kpi-s">parcelas anteriores</div></div>
+    <div class="kpi"><div class="kpi-l">Média por dia</div><div class="kpi-v y">R$9,0k</div><div class="kpi-s">25 dias</div></div>
+    <div class="kpi"><div class="kpi-l">Saídas</div><div class="kpi-v r">R$30,7k</div><div class="kpi-s">13,6% do lançado</div></div>
+  </div>
+
+  <div class="chart">
+    <div class="chart-head">
+      <div class="chart-title">Lançado por dia — agosto 2026</div>
+      <div class="chart-note">verde: acima de R$10k · vermelho: abaixo de R$5k</div>
+    </div>
+    <div class="bars" id="bars"></div>
+  </div>
+
+  <div class="grid3">
+    <div class="card"><div class="card-t b">Bikes</div>
+      <div class="kpi-v b" style="font-size:26px">80</div>
+      <div class="kpi-s">unidades · ticket R$1.577</div>
+    </div>
+    <div class="card" style="border-color:rgba(63,184,160,.3)"><div class="card-t t">Oficina</div>
+      <div class="kpi-v t" style="font-size:26px">116</div>
+      <div class="kpi-s">serviços · ticket R$203</div>
+    </div>
+    <div class="card"><div class="card-t y">Acessórios</div>
+      <div class="kpi-v y" style="font-size:26px">99</div>
+      <div class="kpi-s">itens · ticket R$149</div>
+    </div>
+  </div>
+
+  <div class="alert al-y"><b>Dia dos Pais subaproveitado.</b> O sábado 08/08, véspera da data, fechou em R$8.762 — abaixo da média de sábado do próprio mês (R$12.164) e muito abaixo do potencial da única data do ano que vende bike de adulto como presente.</div>
+</div>
+
+<hr>
+
+<!-- QUINZENAS -->
+<div class="sec" id="quinzenas">
+  <div class="eyebrow">03 · O que mudou</div>
+  <h2>O sprint de fim de mês não aconteceu</h2>
+  <p class="desc">Esta é a diferença mais importante entre julho e agosto.</p>
+
+  <div class="grid2">
+    <div class="card" style="border-color:rgba(76,175,80,.3)">
+      <div class="card-t g">Julho — houve aceleração</div>
+      <div class="hb"><div class="hb-l">1ª quinzena</div><div class="hb-t"><div class="hb-f" style="width:75%;background:var(--blue)"></div></div><div class="hb-v b">R$8.781/dia</div></div>
+      <div class="hb"><div class="hb-l">2ª quinzena</div><div class="hb-t"><div class="hb-f" style="width:100%;background:var(--green)"></div></div><div class="hb-v g">R$11.731/dia</div></div>
+      <div style="font-size:26px;font-weight:700;letter-spacing:-.8px;margin-top:12px" class="g">+34%</div>
+      <div class="sd" style="font-size:12px">Nenhum dia abaixo de R$4.300 na segunda metade.</div>
+    </div>
+    <div class="card" style="border-color:rgba(229,84,79,.3)">
+      <div class="card-t r">Agosto — ritmo plano</div>
+      <div class="hb"><div class="hb-l">1ª quinzena</div><div class="hb-t"><div class="hb-f" style="width:100%;background:var(--blue)"></div></div><div class="hb-v b">R$9.087/dia</div></div>
+      <div class="hb"><div class="hb-l">2ª quinzena</div><div class="hb-t"><div class="hb-f" style="width:99%;background:var(--red)"></div></div><div class="hb-v r">R$8.964/dia</div></div>
+      <div style="font-size:26px;font-weight:700;letter-spacing:-.8px;margin-top:12px" class="r">−1%</div>
+      <div class="sd" style="font-size:12px">Quatro dias abaixo de R$5.000 na segunda metade.</div>
+    </div>
+  </div>
+
+  <div class="alert al-b"><b>A lição de julho não virou processo.</b> Em julho, a segunda quinzena rodou 34% acima da primeira com o mesmo time, o mesmo estoque e a mesma mídia — prova de que a alavanca está na execução. Em agosto, esse mesmo esforço não se repetiu, e o mês voltou ao patamar de maio. A diferença entre R$225k e R$272k não está no mercado; está na intensidade comercial da segunda metade do mês.</div>
+
+  <div class="alert al-g"><b>O que isso significa na prática:</b> se agosto tivesse repetido a aceleração de julho na segunda quinzena, o mês teria fechado em torno de <b>R$268k</b> — R$43k a mais, sem campanha nova, sem mídia adicional e sem estoque extra.</div>
+</div>
+
+<hr>
+
+<!-- SEMANA -->
+<div class="sec" id="semana">
+  <div class="eyebrow">04 · Dias da semana</div>
+  <h2>A inversão entre julho e agosto</h2>
+  <p class="desc">Os dias fortes trocaram de lugar — e isso explica boa parte da queda.</p>
+
+  <div class="chart">
+    <div class="chart-head"><div class="chart-title">Média por dia da semana</div><div class="chart-note">azul: julho · amarelo: agosto</div></div>
+    <div class="tw" style="margin-bottom:0">
       <table>
-        <thead><tr><th>Produto</th><th>Valor</th><th>Observação</th></tr></thead>
+        <thead><tr><th>Dia</th><th class="num">Julho</th><th class="num">Agosto</th><th class="num">Variação</th><th>Leitura</th></tr></thead>
         <tbody>
-          <tr><td>Sunpeed Galaxy L Prata</td><td class="td-yellow">R$12.400</td><td>Ticket mais alto do mês</td></tr>
-          <tr><td>Pagamento Cristóvão Caloi</td><td class="td-yellow">R$12.000</td><td>Parcelado de venda anterior</td></tr>
-          <tr><td>Troca Oggi Agille + guidão + selante</td><td class="td-blue">R$8.880</td><td>Combo de upgrade — alto valor</td></tr>
-          <tr><td>Yoo + cubo + rec + cadeado</td><td class="td-blue">R$5.950</td><td>Combo bem montado</td></tr>
-          <tr><td>Caloi Expert + cap + lanterna + sinalizador</td><td class="td-blue">R$5.500</td><td>Exemplo de combo ideal</td></tr>
-          <tr><td>Yoo + capacete + óculos</td><td>R$5.170</td><td>Cliente comprou tudo que foi oferecido</td></tr>
+          <tr><td>Segunda</td><td class="num">R$13.396</td><td class="num">R$7.455</td><td class="num r">−44%</td><td>Maior queda do mês</td></tr>
+          <tr><td>Terça</td><td class="num">R$13.117</td><td class="num">R$8.286</td><td class="num r">−37%</td><td>Perdeu o posto de dia forte</td></tr>
+          <tr><td>Quarta</td><td class="num">R$9.428</td><td class="num">R$6.500</td><td class="num r">−31%</td><td>Pior dia de agosto</td></tr>
+          <tr><td>Quinta</td><td class="num">R$6.379</td><td class="num">R$7.648</td><td class="num g">+20%</td><td>Melhorou, ainda baixo</td></tr>
+          <tr><td>Sexta</td><td class="num">R$9.631</td><td class="num">R$11.297</td><td class="num g">+17%</td><td>Ganhou tração</td></tr>
+          <tr><td><span class="g">Sábado</span></td><td class="num">R$9.808</td><td class="num g">R$12.164</td><td class="num g">+24%</td><td>Melhor dia de agosto</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 
-  <hr class="divider">
+  <div class="alert al-g"><b>As ações de sábado funcionaram.</b> Sábado saltou 24% e virou o melhor dia da semana, com R$60.821 no mês. Sexta subiu 17%. O fim de semana comercial respondeu ao que foi estruturado.</div>
 
-  <!-- 2. REPOSICIONAMENTO -->
-  <div class="section" id="reposicionamento">
-    <div class="section-eyebrow">02 · Marca</div>
-    <h2 class="section-title">Parar de viver de promoção</h2>
-    <p class="section-desc">Quando há oferta todo mês, o cliente aprende a esperar. Isso destrói margem e percepção de valor.</p>
+  <div class="alert al-r"><b>Mas o início da semana desabou.</b> Segunda e terça caíram 44% e 37%. Em julho, esses dois dias sozinhos geravam R$106k; em agosto, R$63k. <b>Essa diferença de R$43k é praticamente todo o recuo do mês.</b> A energia foi para o sábado e saiu do começo da semana.</div>
+</div>
 
-    <div class="alert alert-red"><strong>O problema:</strong> Promoções mensais recorrentes criam um cliente que só compra com desconto. Quem compra sem oferta se sente lesado. O ciclo corrói tanto a margem quanto a reputação da marca.</div>
+<hr>
 
-    <div class="reposition">
-      <div class="section-eyebrow" style="margin-bottom:16px">Três movimentos de reposicionamento</div>
-      <div class="step" style="margin-bottom:16px"><div class="step-n n-yellow" style="width:26px;height:26px;font-size:12px">1</div><div class="step-body"><div class="step-title" style="font-size:13px;margin-bottom:4px">Trocar "promoção" por "combo com benefício"</div><div class="step-desc">Em vez de "20% off na bike", comunicar: "Bike + capacete + cadeado + 1ª revisão inclusa". O cliente percebe valor agregado — não desconto. A margem é protegida porque o acessório (30% de margem) compõe o bundle.</div></div></div>
-      <div class="step" style="margin-bottom:16px"><div class="step-n n-yellow" style="width:26px;height:26px;font-size:12px">2</div><div class="step-body"><div class="step-title" style="font-size:13px;margin-bottom:4px">Criar combos fixos com nome próprio</div><div class="step-desc">Kit Iniciante / Kit Esportivo / Kit Premium — preços fechados, sem negociação. O combo já é o preço especial. Encerra o ciclo de espera porque o benefício é permanente e transparente.</div></div></div>
-      <div class="step"><div class="step-n n-yellow" style="width:26px;height:26px;font-size:12px">3</div><div class="step-body"><div class="step-title" style="font-size:13px;margin-bottom:4px">Reservar oferta real para datas âncora</div><div class="step-desc">Máximo 2 momentos de desconto explícito por semestre: Dia das Crianças (outubro) e Black Friday (novembro). Fora disso, comunicar experiência, expertise e serviço — nunca preço.</div></div></div>
-      <div class="script-box">"A Iran Bikes não tem promoção todo mês. Temos combos pensados pra cada perfil de ciclista. O seu está aqui."</div>
+<!-- MIX -->
+<div class="sec" id="mix">
+  <div class="eyebrow">05 · Mix</div>
+  <h2>Onde o faturamento se formou</h2>
+
+  <div class="chart">
+    <div class="hb"><div class="hb-l">Bikes</div><div class="hb-t"><div class="hb-f" style="width:71.2%;background:var(--blue)"></div></div><div class="hb-v b">71,2% · R$126,2k</div></div>
+    <div class="hb"><div class="hb-l">Oficina</div><div class="hb-t"><div class="hb-f" style="width:13.3%;background:var(--teal)"></div></div><div class="hb-v t">13,3% · R$23,6k</div></div>
+    <div class="hb"><div class="hb-l">Acessórios</div><div class="hb-t"><div class="hb-f" style="width:8.3%;background:var(--yellow)"></div></div><div class="hb-v y">8,3% · R$14,7k</div></div>
+    <div class="hb"><div class="hb-l">Outros</div><div class="hb-t"><div class="hb-f" style="width:7.2%;background:var(--g4)"></div></div><div class="hb-v" style="color:var(--g5)">7,2% · R$12,8k</div></div>
+  </div>
+
+  <div class="grid2">
+    <div class="card" style="border-color:rgba(63,184,160,.3)">
+      <div class="card-t t">Oficina em alta</div>
+      <div style="font-size:34px;font-weight:700;letter-spacing:-1.4px;line-height:1;margin-bottom:8px" class="t">+27,7%</div>
+      <div class="sd" style="font-size:12px">no ticket médio, de R$159 para R$203. A participação subiu de 9,0% para 13,3% e foram 116 serviços no mês. <b style="color:var(--white)">É a linha mais saudável da operação hoje</b> — e a de maior margem.</div>
+    </div>
+    <div class="card" style="border-color:rgba(229,84,79,.3)">
+      <div class="card-t r">Attach rate em queda</div>
+      <div style="font-size:34px;font-weight:700;letter-spacing:-1.4px;line-height:1;margin-bottom:8px"><span class="r">6%</span> <span style="font-size:15px;color:var(--g5);font-weight:400">era 9%</span></div>
+      <div class="sd" style="font-size:12px">75 de 80 bikes saíram <b style="color:var(--white)">sem nenhum acessório junto</b>. Três meses de acompanhamento e o número nunca passou de 9% — não há evidência de que a prática tenha sido adotada.</div>
     </div>
   </div>
 
-  <hr class="divider">
+  <div class="alert al-y"><b>O attach rate é o item mais barato da lista e o único que não se mexeu.</b> A R$300–400 de acessório por bike, as 75 vendas sem complemento representam de <b>R$22k a R$30k de faturamento</b> e cerca de R$7k a R$9k de lucro deixados na mesa em um único mês. Não depende de lead novo, mídia ou estoque adicional — depende de o kit ser apresentado como padrão da proposta.</div>
 
-  <!-- 3. COMBOS -->
-  <div class="section" id="combos">
-    <div class="section-eyebrow">03 · Combos</div>
-    <h2 class="section-title">Três kits para lançar em julho</h2>
-    <p class="section-desc">Preços fechados. Sem negociação. O desconto já está embutido no valor percebido.</p>
-
-    <div class="combo-grid">
-      <div class="combo-card">
-        <div class="combo-name">Kit Iniciante</div>
-        <div class="combo-price">A partir de<br>R$1.800</div>
-        <div class="combo-items">
-          Bike entrada<br>
-          Capacete<br>
-          Cadeado<br>
-          1ª revisão gratuita (30 dias)
-        </div>
-        <div class="combo-tag">Público urbano</div>
-      </div>
-      <div class="combo-card" style="border-color:var(--yellow-dim)">
-        <div class="combo-name">Kit Esportivo</div>
-        <div class="combo-price">A partir de<br>R$3.500</div>
-        <div class="combo-items">
-          Bike intermediária<br>
-          Capacete + óculos<br>
-          Lanterna + sinalizador<br>
-          Garrafa + suporte<br>
-          1ª revisão gratuita (30 dias)
-        </div>
-        <div class="combo-tag">Mais vendido</div>
-      </div>
-      <div class="combo-card">
-        <div class="combo-name">Kit Premium</div>
-        <div class="combo-price">A partir de<br>R$6.000</div>
-        <div class="combo-items">
-          Bike Oggi / Yoo / Sunpeed<br>
-          Kit completo de acessórios<br>
-          Pedaleiras / shorts / camisa<br>
-          Revisão 30 e 60 dias incluída
-        </div>
-        <div class="combo-tag">Alto desempenho</div>
-      </div>
-    </div>
-
-    <div class="alert alert-green"><strong>Regra dos combos:</strong> Todo vendedor apresenta o kit como ponto de partida, não como opcional. "Aqui temos o Kit Esportivo completo por R$3.500. Quer personalizar algum item?" — o cliente opta por mais, nunca por menos.</div>
+  <div class="eyebrow" style="margin-top:28px">Maiores vendas do mês</div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Data</th><th>Item</th><th class="num">Valor</th><th>Acessório junto</th></tr></thead>
+      <tbody>
+        <tr><td>27/08</td><td>Yoo</td><td class="num y">R$4.570</td><td class="r">Não</td></tr>
+        <tr><td>28/08</td><td>Yoo Preta/Vermelha</td><td class="num y">R$4.500</td><td class="r">Não</td></tr>
+        <tr><td>08/08</td><td>Troca Oggi 7.2 Cinza/Azul 17</td><td class="num y">R$4.300</td><td class="r">Não</td></tr>
+        <tr><td>15/08</td><td>Caloi Expert Comp Vermelha 17</td><td class="num b">R$4.090</td><td class="r">Não</td></tr>
+        <tr><td>13/08</td><td>Troca de bike Trek</td><td class="num b">R$4.000</td><td class="r">Não</td></tr>
+        <tr><td>22/08</td><td>Quadro Cannondale</td><td class="num b">R$4.000</td><td class="r">Não</td></tr>
+        <tr><td>21/08</td><td>Oggi 7.0 Cinza/Amarela 17</td><td class="num b">R$3.900</td><td class="r">Não</td></tr>
+        <tr><td>11/08</td><td>Absolute Nero 6 Amarela 17</td><td class="num">R$3.700</td><td class="r">Não</td></tr>
+      </tbody>
+    </table>
   </div>
+</div>
 
-  <hr class="divider">
+<hr>
 
-  <!-- 4. TIME -->
-  <div class="section" id="time">
-    <div class="section-eyebrow">04 · Time</div>
-    <h2 class="section-title">Estrutura que não depende de uma pessoa só</h2>
-    <p class="section-desc">Três frentes operando em paralelo, com papéis claros.</p>
+<!-- GARGALOS -->
+<div class="sec" id="gargalos">
+  <div class="eyebrow">06 · Diagnóstico</div>
+  <h2>Os quatro pontos de decisão</h2>
+  <p class="desc">Em ordem de impacto financeiro mensal.</p>
 
-    <div class="grid3">
-      <div class="card">
-        <div class="card-title blue">Vendas online</div>
-        <div class="step"><div class="step-n n-blue">→</div><div class="step-body"><div class="step-desc">Foco em leads qualificados e tickets acima de R$2k. Retorno em 02/07 com pipeline organizado e scripts prontos.</div></div></div>
-        <div class="step"><div class="step-n n-blue">→</div><div class="step-body"><div class="step-desc">Papel crescente de gestão: direcionar Grilo para fechar, supervisionar e auditar qualidade de atendimento.</div></div></div>
-        <div class="step"><div class="step-n n-blue">→</div><div class="step-body"><div class="step-desc">Meta: 5 ligações ativas/semana + auditoria de 10 conversas toda sexta.</div></div></div>
-      </div>
-      <div class="card">
-        <div class="card-title" style="color:var(--yellow)">Social Selling</div>
-        <div class="step"><div class="step-n n-yellow">→</div><div class="step-body"><div class="step-desc">Conteúdo que gera lead antes de chegar no WhatsApp. Perfil qualificado entra no funil já segmentado.</div></div></div>
-        <div class="step"><div class="step-n n-yellow">→</div><div class="step-body"><div class="step-desc">3–4 posts/semana: Bike da Semana (terça), Reel da mecânica (quinta), post de kit/combo (sábado).</div></div></div>
-        <div class="step"><div class="step-n n-yellow">→</div><div class="step-body"><div class="step-desc">Atendimento de entrada pelo WhatsApp com script simplificado: qualificar e registrar no CRM.</div></div></div>
-      </div>
-      <div class="card">
-        <div class="card-title green">Mecânica</div>
-        <div class="step"><div class="step-n n-green">→</div><div class="step-body"><div class="step-desc">A oficina é ponto de venda. Durante a revisão: oferecer acessório, registrar no CRM, perguntar sobre a experiência.</div></div></div>
-        <div class="step"><div class="step-n n-green">→</div><div class="step-body"><div class="step-desc">Foto + vídeo de 30s mostrando a bike pronta com o nome do cliente. Enviado pelo WhatsApp. Gera indicação.</div></div></div>
-        <div class="step"><div class="step-n n-green">→</div><div class="step-body"><div class="step-desc">Revisões aos 30 e 60 dias para toda bike nova. Agendamento sai na hora da entrega da bike.</div></div></div>
-      </div>
+  <div class="grid2">
+    <div class="card" style="border-color:rgba(229,84,79,.3)">
+      <div class="card-t r">1 · Ritmo da segunda quinzena</div>
+      <div class="sd" style="font-size:12px;margin-bottom:12px">Julho provou que a segunda metade pode rodar 34% acima. Em agosto isso não se repetiu e o mês perdeu o patamar.</div>
+      <div class="step"><div class="sn nr">→</div><div class="sb"><div class="sd">Meta semanal com gatilho: se até quarta não bater 50%, entra campanha de reação</div></div></div>
+      <div class="step"><div class="sn nr">→</div><div class="sb"><div class="sd">Placar diário no grupo comercial às 18h</div></div></div>
+      <div class="step"><div class="sn nr">→</div><div class="sb"><div class="sd"><b class="r">Impacto: R$40–45k/mês</b></div></div></div>
     </div>
-
-    <div class="section-eyebrow" style="margin-top:8px">Checklist entre setores — fluxo obrigatório</div>
-    <div class="card" style="margin-bottom:0">
-      <div style="display:flex;align-items:center;gap:0;flex-wrap:wrap;">
-        <div style="font-size:12px;padding:8px 14px;background:rgba(74,144,217,.1);border-radius:6px;color:var(--blue);font-weight:600">Venda fechada</div>
-        <div style="font-size:18px;color:var(--gray-4);padding:0 8px">→</div>
-        <div style="font-size:12px;padding:8px 14px;background:rgba(76,175,80,.1);border-radius:6px;color:var(--green);font-weight:600">Oficina avisada</div>
-        <div style="font-size:18px;color:var(--gray-4);padding:0 8px">→</div>
-        <div style="font-size:12px;padding:8px 14px;background:rgba(76,175,80,.1);border-radius:6px;color:var(--green);font-weight:600">Revisão 30d agendada</div>
-        <div style="font-size:18px;color:var(--gray-4);padding:0 8px">→</div>
-        <div style="font-size:12px;padding:8px 14px;background:rgba(245,196,0,.1);border-radius:6px;color:var(--yellow);font-weight:600">Acessório ofertado</div>
-        <div style="font-size:18px;color:var(--gray-4);padding:0 8px">→</div>
-        <div style="font-size:12px;padding:8px 14px;background:rgba(74,144,217,.1);border-radius:6px;color:var(--blue);font-weight:600">Follow-up D+1</div>
-      </div>
+    <div class="card" style="border-color:rgba(229,84,79,.3)">
+      <div class="card-t r">2 · Segunda e terça</div>
+      <div class="sd" style="font-size:12px;margin-bottom:12px">Caíram 44% e 37% contra julho. Concentraram toda a perda do mês.</div>
+      <div class="step"><div class="sn nr">→</div><div class="sb"><div class="sd">Segunda: varredura do funil e ligações para orçamento parado</div></div></div>
+      <div class="step"><div class="sn nr">→</div><div class="sb"><div class="sd">Terça: recall de oficina e clientes de 30–90 dias</div></div></div>
+      <div class="step"><div class="sn nr">→</div><div class="sb"><div class="sd"><b class="r">Impacto: R$40k/mês</b></div></div></div>
+    </div>
+    <div class="card" style="border-color:rgba(245,196,0,.3)">
+      <div class="card-t y">3 · Attach rate</div>
+      <div class="sd" style="font-size:12px;margin-bottom:12px">6% em agosto, 9% em julho. Três meses sem sair do lugar.</div>
+      <div class="step"><div class="sn ny">→</div><div class="sb"><div class="sd">Kit fechado como ponto de partida da proposta, não como opcional</div></div></div>
+      <div class="step"><div class="sn ny">→</div><div class="sb"><div class="sd">Giro do Dado com prêmio em acessório força a prática</div></div></div>
+      <div class="step"><div class="sn ny">→</div><div class="sb"><div class="sd"><b class="y">Impacto: R$22–30k/mês</b></div></div></div>
+    </div>
+    <div class="card" style="border-color:rgba(63,184,160,.3)">
+      <div class="card-t t">4 · Oficina — ampliar o que funciona</div>
+      <div class="sd" style="font-size:12px;margin-bottom:12px">Única linha em crescimento consistente. Ticket subiu 27,7% e a participação saltou 4,3 pontos.</div>
+      <div class="step"><div class="sn nt">→</div><div class="sb"><div class="sd">Manter o Sábado da Oficina como evento fixo</div></div></div>
+      <div class="step"><div class="sn nt">→</div><div class="sb"><div class="sd">Upsell de acessório durante a revisão — cliente já está na loja</div></div></div>
+      <div class="step"><div class="sn nt">→</div><div class="sb"><div class="sd"><b class="t">Oportunidade: dobrar até dezembro</b></div></div></div>
     </div>
   </div>
 
-  <hr class="divider">
+  <div class="alert al-b"><b>Falta o instrumento que fecharia o diagnóstico.</b> Chegam de 30 a 60 mensagens por dia pelos canais digitais e não há registro de quantas viram conversa, proposta e venda. Sem o funil medido no CRM, não é possível separar o que é problema de geração de demanda do que é problema de conversão — e a discussão entre marketing e comercial continua sendo troca de percepções.</div>
+</div>
 
-  <!-- 5. PLANO JULHO -->
-  <div class="section" id="julho">
-    <div class="section-eyebrow">05 · Plano de ação</div>
-    <h2 class="section-title">Julho semana a semana</h2>
-    <p class="section-desc">Meta R$400k. Julho historicamente sobe vs junho. 388 participantes do Ecopedal ainda não contatados.</p>
+<hr>
 
-    <div class="week">
-      <div class="week-head"><span class="week-badge wb-1">Semana 1</span><span class="week-title">01–06/07 · Retomada e ativação</span></div>
-      <div class="week-body">
-        <div class="week-grid">
-          <div class="step"><div class="step-n n-blue">1</div><div class="step-body"><div class="step-title">Pipeline limpo antes de novos leads</div><div class="step-desc">Revisar todos os leads "Proposta" de maio/junho. Ligação ativa nos primeiros 2 dias de retorno.</div></div></div>
-          <div class="step"><div class="step-n n-blue">2</div><div class="step-body"><div class="step-title">Lançar os 3 kits</div><div class="step-desc">Iran define os preços. Social Selling publica no Instagram. Canal online usa nos scripts de WhatsApp.</div></div></div>
-          <div class="step"><div class="step-n n-yellow">3</div><div class="step-body"><div class="step-title">Primeiro post de Social Selling</div><div class="step-desc">"Qual o seu perfil de ciclista?" — post interativo qualifica o lead antes de entrar no WhatsApp.</div></div></div>
-          <div class="step"><div class="step-n n-yellow">4</div><div class="step-body"><div class="step-title">Reativar os 388 do Ecopedal</div><div class="step-desc">Gancho: "Você participou do Eco Pedal. Temos o kit certo pra você evoluir." Sem falar de desconto — falar de evolução.</div></div></div>
+<!-- SETEMBRO -->
+<div class="sec" id="setembro">
+  <div class="eyebrow">07 · Setembro</div>
+  <h2>Três campanhas em operação</h2>
+  <p class="desc">Cada uma ataca um gargalo diferente identificado nos três meses.</p>
+
+  <div class="camp">
+    <div class="camp-h"><span class="cbd cb-y">Campanha 1</span><span class="camp-t">Semana do Cliente</span><span class="camp-d">14 a 19/09</span></div>
+    <div class="camp-b">
+      <div class="grid2">
+        <div>
+          <div class="step"><div class="sn ny">A</div><div class="sb"><div class="stt">Antes: 08 a 13/09</div><div class="sd">Segmentar a base em três listas: comprou nos últimos 90 dias, orçamento parado, participantes de eventos.</div></div></div>
+          <div class="step"><div class="sn ny">B</div><div class="sb"><div class="stt">Convite individual, não transmissão</div><div class="sd">Mensagem com o nome do cliente e referência ao interesse que ele já demonstrou.</div></div></div>
         </div>
-      </div>
-    </div>
-
-    <div class="week">
-      <div class="week-head"><span class="week-badge wb-2">Semana 2</span><span class="week-title">07–13/07 · Execução e oficina</span></div>
-      <div class="week-body">
-        <div class="week-grid">
-          <div class="step"><div class="step-n n-green">5</div><div class="step-body"><div class="step-title">Recall de clientes 30–90 dias</div><div class="step-desc">Clientes de abril e maio: mensagem de revisão. Mecânica já preparada para upsell durante a visita.</div></div></div>
-          <div class="step"><div class="step-n n-green">6</div><div class="step-body"><div class="step-title">Checklist entre setores rodando</div><div class="step-desc">Fluxo completo documentado e seguido: venda → oficina → revisão → acessório → follow-up D+1.</div></div></div>
-          <div class="step"><div class="step-n n-green">7</div><div class="step-body"><div class="step-title">Vídeo de entrega da bike</div><div class="step-desc">Mecânica grava 30s com a bike pronta + nome do cliente. Enviado pelo WhatsApp. Gera indicação e conteúdo orgânico.</div></div></div>
-          <div class="step"><div class="step-n n-blue">8</div><div class="step-body"><div class="step-title">Placar semanal no grupo</div><div class="step-desc">Meta da semana / vendido até agora / o que falta. Atualizado todo dia às 18h.</div></div></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="week">
-      <div class="week-head"><span class="week-badge wb-3">Semana 3</span><span class="week-title">14–20/07 · Conteúdo e conversão</span></div>
-      <div class="week-body">
-        <div class="week-grid">
-          <div class="step"><div class="step-n n-yellow">9</div><div class="step-body"><div class="step-title">Série "Bike da Semana"</div><div class="step-desc">Toda terça: foto/vídeo de uma bike em estoque com a história de quem comprou. Prova social + produto + desejo.</div></div></div>
-          <div class="step"><div class="step-n n-yellow">10</div><div class="step-body"><div class="step-title">Reels da mecânica</div><div class="step-desc">30s mostrando revisão, peça instalada ou problema resolvido. Humaniza a loja e posiciona expertise técnica.</div></div></div>
-          <div class="step"><div class="step-n n-blue">11</div><div class="step-body"><div class="step-title">5 ligações ativas por semana</div><div class="step-desc">Foco em leads com ticket acima de R$2k que não fecharam. Abertura: "Separei uma opção que encaixa no que você me disse."</div></div></div>
-          <div class="step"><div class="step-n n-blue">12</div><div class="step-body"><div class="step-title">Auditoria de sexta</div><div class="step-desc">10 conversas da semana. Rubrica do Playbook. 1 ajuste para semana seguinte. 30 minutos.</div></div></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="week">
-      <div class="week-head"><span class="week-badge wb-4">Semana 4</span><span class="week-title">21–31/07 · Fechamento e agosto</span></div>
-      <div class="week-body">
-        <div class="week-grid">
-          <div class="step"><div class="step-n n-gray">13</div><div class="step-body"><div class="step-title">Review 31/07</div><div class="step-desc">KPIs reais vs meta. Análise por categoria e canal. Definir meta e 3 prioridades de agosto.</div></div></div>
-          <div class="step"><div class="step-n n-gray">14</div><div class="step-body"><div class="step-title">Estoque para agosto/setembro</div><div class="step-desc">Agosto sobe com pré-outubro (Dia das Crianças). Mapear bikes de maior giro e garantir reposição.</div></div></div>
-          <div class="step"><div class="step-n n-gray">15</div><div class="step-body"><div class="step-title">Grilo assumindo mais leads</div><div class="step-desc">Meta: 20% dos leads presenciais fechados por Grilo, com supervisão. Reduz dependência de um único vendedor.</div></div></div>
-          <div class="step"><div class="step-n n-gray">16</div><div class="step-body"><div class="step-title">Mecânico problemático — decisão</div><div class="step-desc">Definir até 31/07: fica com processo claro ou sai. Equipe desmotivada é mais cara que a reposição.</div></div></div>
+        <div>
+          <div class="step"><div class="sn ny">C</div><div class="sb"><div class="stt">Ataca o gargalo de segunda e terça</div><div class="sd">A campanha começa numa segunda. É a chance de recuperar o início de semana que caiu 44% em agosto.</div></div></div>
+          <div class="step"><div class="sn ny">D</div><div class="sb"><div class="stt">Sábado 19/09 como pico</div><div class="sd">Sábado já é o melhor dia. Concentrar retiradas, entregas e test ride.</div></div></div>
         </div>
       </div>
     </div>
   </div>
 
-  <hr class="divider">
-
-  <!-- 6. KPIs -->
-  <div class="section" id="kpis">
-    <div class="section-eyebrow">06 · KPIs</div>
-    <h2 class="section-title">Acompanhamento semanal</h2>
-    <p class="section-desc">Todo sábado, 15 minutos. Esses são os únicos números que importam agora.</p>
-
-    <div class="kpi-grid" style="margin-bottom:24px">
-      <div class="kpi"><div class="kpi-label">Meta julho</div><div class="kpi-val yellow">R$400k</div><div class="kpi-sub">+R$162k vs maio</div></div>
-      <div class="kpi"><div class="kpi-label">Acessório por venda</div><div class="kpi-val green">≥25%</div><div class="kpi-sub">do ticket de bike</div></div>
-      <div class="kpi"><div class="kpi-label">Ecopedal restante</div><div class="kpi-val blue">388</div><div class="kpi-sub">contatar em julho</div></div>
-      <div class="kpi"><div class="kpi-label">Posts/semana</div><div class="kpi-val">3–4</div><div class="kpi-sub">Social Selling</div></div>
-      <div class="kpi"><div class="kpi-label">Revisões agendadas</div><div class="kpi-val green">+40%</div><div class="kpi-sub">vs junho</div></div>
-      <div class="kpi"><div class="kpi-label">1ª resposta</div><div class="kpi-val">≤5min</div><div class="kpi-sub">SLA WhatsApp</div></div>
-    </div>
-
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>KPI</th><th>Meta</th><th>Frequência</th><th>Responsável</th></tr></thead>
-        <tbody>
-          <tr><td>Faturamento acumulado</td><td class="td-yellow">R$400k</td><td>Diário</td><td>Gestão</td></tr>
-          <tr><td>Leads com CTA claro</td><td class="td-green">≥80%</td><td>Semanal</td><td>Vendas online</td></tr>
-          <tr><td>2 opções enviadas por lead</td><td class="td-green">≥70%</td><td>Semanal</td><td>Vendas online</td></tr>
-          <tr><td>Posts publicados</td><td>3–4/sem</td><td>Semanal</td><td>Social Selling</td></tr>
-          <tr><td>Ligações ativas</td><td>5/sem</td><td>Semanal</td><td>Vendas online</td></tr>
-          <tr><td>Revisões agendadas</td><td class="td-green">+40% vs jun</td><td>Semanal</td><td>Mecânica</td></tr>
-          <tr><td>Dispensas/saídas</td><td class="td-red">≤8% das vendas</td><td>Diário</td><td>Financeiro</td></tr>
-        </tbody>
-      </table>
+  <div class="camp">
+    <div class="camp-h"><span class="cbd cb-p">Campanha 2</span><span class="camp-t">Giro do Dado</span><span class="camp-d">mês inteiro · na compra da bike</span></div>
+    <div class="camp-b">
+      <div class="grid2">
+        <div>
+          <div class="step"><div class="sn np">A</div><div class="sb"><div class="stt">Prêmio sempre em acessório ou serviço</div><div class="sd">Nunca desconto em dinheiro. Assim a mecânica empurra o attach rate travado em 6% — o gargalo que não se move há três meses.</div></div></div>
+          <div class="step"><div class="sn np">B</div><div class="sb"><div class="stt">Jogar depois do fechamento</div><div class="sd">O dado é celebração da compra, não argumento de venda.</div></div></div>
+        </div>
+        <div>
+          <div class="step"><div class="sn np">C</div><div class="sb"><div class="stt">Registrar o prêmio no CRM</div><div class="sd">Permite medir se o dado realmente aumentou o attach ou apenas deu brinde a quem já ia comprar.</div></div></div>
+          <div class="step"><div class="sn np">D</div><div class="sb"><div class="stt">Conteúdo diário pronto</div><div class="sd">Cada jogada vira story. É a prova social mais fácil de produzir no mês.</div></div></div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <footer>
-    <div>Iran Bikes · Plano Comercial · Julho 2026</div>
-    <div>Emissão 11/07/2026 · Uso interno</div>
-  </footer>
+  <div class="camp">
+    <div class="camp-h"><span class="cbd cb-t">Campanha 3</span><span class="camp-t">Seminovas · 10% de cashback</span><span class="camp-d">mês inteiro</span></div>
+    <div class="camp-b">
+      <div class="grid2">
+        <div>
+          <div class="step"><div class="sn nt">A</div><div class="sb"><div class="stt">Cashback é crédito, não desconto</div><div class="sd">O cliente volta à loja para usar. Cria segunda visita e segunda venda — recorrência disfarçada de promoção.</div></div></div>
+          <div class="step"><div class="sn nt">B</div><div class="sb"><div class="stt">Prazo de uso de 30 dias</div><div class="sd">Crédito sem prazo não é resgatado. Trinta dias traz o retorno dentro do mês seguinte.</div></div></div>
+        </div>
+        <div>
+          <div class="step"><div class="sn nt">C</div><div class="sb"><div class="stt">Revisão inclusa na seminova</div><div class="sd">Reduz a objeção de risco e alimenta a oficina, que é a linha que mais cresce.</div></div></div>
+          <div class="step"><div class="sn nt">D</div><div class="sb"><div class="stt">Duas pontas, duas abordagens</div><div class="sd">Porta de entrada do iniciante e troca do intermediário. Trabalhar separado.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="eyebrow" style="margin-top:28px">Rotina da semana — com os dias que precisam subir</div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Dia</th><th>Foco</th><th>Ação principal</th><th class="num">Agosto</th></tr></thead>
+      <tbody>
+        <tr><td><span class="r">Segunda</span></td><td><span class="r">Carteira</span></td><td>Varredura do funil e ligações para orçamentos parados</td><td class="num r">R$7,5k</td></tr>
+        <tr><td><span class="r">Terça</span></td><td><span class="r">Recall</span></td><td>Clientes de 30–90 dias e agendamento de revisões</td><td class="num r">R$8,3k</td></tr>
+        <tr><td><span class="r">Quarta</span></td><td><span class="r">Prospecção</span></td><td>Bloco fixo de prospecção ativa — pior dia do mês</td><td class="num r">R$6,5k</td></tr>
+        <tr><td>Quinta</td><td>Conteúdo e oficina</td><td>Reel da mecânica + follow-up dos leads da semana</td><td class="num">R$7,6k</td></tr>
+        <tr><td>Sexta</td><td>Fechamento</td><td>Follow-up do que ficou aberto + auditoria de 10 conversas</td><td class="num b">R$11,3k</td></tr>
+        <tr><td><span class="g">Sábado</span></td><td><span class="g">Loja cheia</span></td><td>Test ride, Giro do Dado ao vivo, retiradas concentradas</td><td class="num g">R$12,2k</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert al-g"><b>Prioridade de setembro em uma frase:</b> manter o que já funciona no fim da semana e recuperar segunda, terça e quarta — que juntas caíram R$43k em agosto e respondem por praticamente toda a diferença entre os dois meses.</div>
+</div>
+
+<footer>
+  <div>Iran Bikes · Dashboard Comercial</div>
+  <div>Maio · Julho · Agosto 2026 · Atualizado em 04/09/2026</div>
+</footer>
 
 </div>
+
+<script>
+const dados=[
+ {d:'01',v:7946},{d:'04',v:4052},{d:'05',v:4422},{d:'06',v:4308},{d:'07',v:12365},
+ {d:'08',v:8762},{d:'10',v:7291},{d:'11',v:11950},{d:'12',v:9092},{d:'13',v:10935},
+ {d:'14',v:7280},{d:'15',v:20635},{d:'17',v:4740},{d:'18',v:6934},{d:'19',v:4547},
+ {d:'20',v:5875},{d:'21',v:11564},{d:'22',v:9157},{d:'24',v:6865},{d:'25',v:10206},
+ {d:'26',v:7941},{d:'27',v:9473},{d:'28',v:13979},{d:'29',v:14321},{d:'31',v:10924}
+];
+const max=Math.max(...dados.map(x=>x.v));
+document.getElementById('bars').innerHTML=dados.map(x=>{
+  const h=Math.max((x.v/max)*100,1.2);
+  const c=x.v>=10000?'hi':(x.v<5000?'lo':'');
+  return `<div class="bw"><div class="bt">R$${(x.v/1000).toFixed(1)}k</div><div class="bar ${c}" style="height:${h}%"></div><div class="bx">${x.d}</div></div>`;
+}).join('');
+</script>
 </body>
 </html>
